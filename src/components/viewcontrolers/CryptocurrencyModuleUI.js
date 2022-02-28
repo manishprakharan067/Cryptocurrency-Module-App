@@ -20,11 +20,13 @@ export default class CryptoCurrencyModule extends Component {
     super(props);
     this.state = {
       onChangeText: '',
+      input: '',
       topScrollableRowFeed: [
         { title: "Tradable", isSelected: false },
         { title: "WatchList", isSelected: false },
         { title: "New on Coinbase", isSelected: false },
       ],
+      searchBitcoins: [],
       bitcoins: [
         {
           image: ImageConstants.bitcoinIcon,
@@ -42,22 +44,22 @@ export default class CryptoCurrencyModule extends Component {
         },
         {
           image: ImageConstants.bitcoinIcon,
-          name: "Ethereum",
-          subTitle: "ETH",
+          name: "Tezos",
+          subTitle: "XTZ",
           rightTop: "$1.43",
           rightBottom: "+12.04%",
         },
         {
           image: ImageConstants.bitcoinIcon,
-          name: "Ethereum",
-          subTitle: "ETH",
+          name: "Chainlink",
+          subTitle: "LINK",
           rightTop: "$1.43",
           rightBottom: "+12.04%",
         },
         {
           image: ImageConstants.bitcoinIcon,
-          name: "Ethereum",
-          subTitle: "ETH",
+          name: "Bitcoin Cash",
+          subTitle: "BCH",
           rightTop: "$1.43",
           rightBottom: "+12.04%",
         },
@@ -101,6 +103,9 @@ export default class CryptoCurrencyModule extends Component {
   }
 
   componentDidMount() {
+    this.setState({
+      searchBitcoins: this.state.bitcoins,
+    });
     this.callAPI();
   }
 
@@ -159,6 +164,23 @@ export default class CryptoCurrencyModule extends Component {
           />
           <TextInput
             placeholder="Search For an asset"
+            value={this.state.input}
+            onChangeText={(text) => {
+              this.setState({ input: text });
+              const data = [...this.state.bitcoins];
+              let filteredArray = data.filter((value) => {
+                return value.name.includes(text);
+              });
+
+              console.log(this.state.input);
+              if (!this.state.input) {
+                this.setState({ bitcoins: this.state.searchBitcoins });
+              } else {
+                this.setState({
+                  bitcoins: filteredArray,
+                });
+              }
+            }}
             style={{
               flex: 1,
               height: 40,
