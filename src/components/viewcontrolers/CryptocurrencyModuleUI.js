@@ -293,6 +293,7 @@ export default class CryptoCurrencyModule extends Component {
   seeMoreButton() {
     return (
       <TouchableOpacity
+        activeOpacity={1}
         style={{
           height: 40,
           borderWidth: 1,
@@ -301,7 +302,7 @@ export default class CryptoCurrencyModule extends Component {
           bottom: 50,
           left: 20,
           right: 20,
-          backgroundColor: "red",
+          backgroundColor: "white",
           justifyContent: "center",
         }}
       >
