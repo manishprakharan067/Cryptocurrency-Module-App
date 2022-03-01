@@ -98,6 +98,27 @@ export default class CryptoCurrencyModule extends Component {
           rightTop: "$1.43",
           rightBottom: "+12.04%",
         },
+        {
+          image: ImageConstants.bitcoinIcon,
+          name: "Ethereum",
+          subTitle: "ETH",
+          rightTop: "$1.43",
+          rightBottom: "+12.04%",
+        },
+        {
+          image: ImageConstants.bitcoinIcon,
+          name: "Ethereum",
+          subTitle: "ETH",
+          rightTop: "$1.43",
+          rightBottom: "+12.04%",
+        },
+        {
+          image: ImageConstants.bitcoinIcon,
+          name: "Ethereum",
+          subTitle: "ETH",
+          rightTop: "$1.43",
+          rightBottom: "+12.04%",
+        },
       ],
     };
   }
@@ -292,9 +313,10 @@ export default class CryptoCurrencyModule extends Component {
         keyExtractor={(item, index) => index.toString()}
         contentContainerStyle={{
           paddingHorizontal: 20,
-          paddingBottom: 20,
+          paddingBottom: 280,
+          flexGrow: 1,
         }}
-        style={{ marginBottom: 20 }}
+        style={{ marginBottom: 100 }}
       />
     );
   }
@@ -321,7 +343,7 @@ export default class CryptoCurrencyModule extends Component {
           borderWidth: 1,
           borderColor: 'black',
           position: 'absolute',
-          bottom: 50,
+          bottom: 180,
           left: 20,
           right: 20,
           backgroundColor: "white",
