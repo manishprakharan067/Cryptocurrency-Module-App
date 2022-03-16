@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   View,
   Text,
@@ -10,114 +10,114 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
   Dimensions,
-} from "react-native";
-import ImageConstants from "../../constants/ImageConstants";
+} from 'react-native';
+import ImageConstants from '../../constants/ImageConstants';
 
-const Height = Dimensions.get('screen').height;
+const Height = Dimensions.get("screen").height;
 
 export default class CryptoCurrencyModule extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      onChangeText: '',
-      input: '',
+      onChangeText: "",
+      input: "",
       topScrollableRowFeed: [
-        { title: "Tradable", isSelected: false },
-        { title: "WatchList", isSelected: false },
-        { title: "New on Coinbase", isSelected: false },
+        { title: 'Tradable', isSelected: false },
+        { title: 'WatchList', isSelected: false },
+        { title: 'New on Coinbase', isSelected: false },
       ],
       searchBitcoins: [],
       bitcoins: [
         {
           image: ImageConstants.bitcoinIcon,
-          name: "Bitcoin",
-          subTitle: "BTC",
-          rightTop: "$1.43",
-          rightBottom: "+12.04%",
+          name: 'Bitcoin',
+          subTitle: 'BTC',
+          rightTop: '$1.43',
+          rightBottom: '+12.04%',
         },
         {
           image: ImageConstants.bitcoinIcon,
-          name: "Ethereum",
-          subTitle: "ETH",
-          rightTop: "$1.43",
-          rightBottom: "+12.04%",
+          name: 'Ethereum',
+          subTitle: 'ETH',
+          rightTop: '$1.43',
+          rightBottom: '+12.04%',
         },
         {
           image: ImageConstants.bitcoinIcon,
-          name: "Tezos",
-          subTitle: "XTZ",
-          rightTop: "$1.43",
-          rightBottom: "+12.04%",
+          name: 'Tezos',
+          subTitle: 'XTZ',
+          rightTop: '$1.43',
+          rightBottom: '+12.04%',
         },
         {
           image: ImageConstants.bitcoinIcon,
-          name: "Chainlink",
-          subTitle: "LINK",
-          rightTop: "$1.43",
-          rightBottom: "+12.04%",
+          name: 'Chainlink',
+          subTitle: 'LINK',
+          rightTop: '$1.43',
+          rightBottom: '+12.04%',
         },
         {
           image: ImageConstants.bitcoinIcon,
-          name: "Bitcoin Cash",
-          subTitle: "BCH",
-          rightTop: "$1.43",
-          rightBottom: "+12.04%",
+          name: 'Bitcoin Cash',
+          subTitle: 'BCH',
+          rightTop: '$1.43',
+          rightBottom: '+12.04%',
         },
         {
           image: ImageConstants.bitcoinIcon,
-          name: "Ethereum",
-          subTitle: "ETH",
-          rightTop: "$1.43",
-          rightBottom: "+12.04%",
+          name: 'Ethereum',
+          subTitle: 'ETH',
+          rightTop: '$1.43',
+          rightBottom: '+12.04%',
         },
         {
           image: ImageConstants.bitcoinIcon,
-          name: "Ethereum",
-          subTitle: "ETH",
-          rightTop: "$1.43",
-          rightBottom: "+12.04%",
+          name: 'Ethereum',
+          subTitle: 'ETH',
+          rightTop: '$1.43',
+          rightBottom: '+12.04%',
         },
         {
           image: ImageConstants.bitcoinIcon,
-          name: "Ethereum",
-          subTitle: "ETH",
-          rightTop: "$1.43",
-          rightBottom: "+12.04%",
+          name: 'Ethereum',
+          subTitle: 'ETH',
+          rightTop: '$1.43',
+          rightBottom: '+12.04%',
         },
         {
           image: ImageConstants.bitcoinIcon,
-          name: "Ethereum",
-          subTitle: "ETH",
-          rightTop: "$1.43",
-          rightBottom: "+12.04%",
+          name: 'Ethereum',
+          subTitle: 'ETH',
+          rightTop: '$1.43',
+          rightBottom: '+12.04%',
         },
         {
           image: ImageConstants.bitcoinIcon,
-          name: "Ethereum",
-          subTitle: "ETH",
-          rightTop: "$1.43",
-          rightBottom: "+12.04%",
+          name: 'Ethereum',
+          subTitle: 'ETH',
+          rightTop: '$1.43',
+          rightBottom: '+12.04%',
         },
         {
           image: ImageConstants.bitcoinIcon,
-          name: "Ethereum",
-          subTitle: "ETH",
-          rightTop: "$1.43",
-          rightBottom: "+12.04%",
+          name: 'Ethereum',
+          subTitle: 'ETH',
+          rightTop: '$1.43',
+          rightBottom: '+12.04%',
         },
         {
           image: ImageConstants.bitcoinIcon,
-          name: "Ethereum",
-          subTitle: "ETH",
-          rightTop: "$1.43",
-          rightBottom: "+12.04%",
+          name: 'Ethereum',
+          subTitle: 'ETH',
+          rightTop: '$1.43',
+          rightBottom: '+12.04%',
         },
         {
           image: ImageConstants.bitcoinIcon,
-          name: "Ethereum",
-          subTitle: "ETH",
-          rightTop: "$1.43",
-          rightBottom: "+12.04%",
+          name: 'Ethereum',
+          subTitle: 'ETH',
+          rightTop: '$1.43',
+          rightBottom: '+12.04%',
         },
       ],
     };
@@ -130,32 +130,36 @@ export default class CryptoCurrencyModule extends Component {
     this.callAPI();
   }
 
+  // shouldComponentUpdate(nextProps) {
+  //   return false;
+  // }
+
   callAPI() {
     fetch(
-      'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=20&convert=USD',
+      "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=20&convert=USD",
       {
-        method: 'GET',
+        method: "GET",
         headers: {
-          'X-CMC_PRO_API_KEY': '7e2634f5-fef1-4bc9-9e4c-0bcb30271008',
+          "X-CMC_PRO_API_KEY": "7e2634f5-fef1-4bc9-9e4c-0bcb30271008",
         },
       }
     )
       .then((response) => {
-        console.log('response:= ', response);
+        console.log("response:= ", response);
       })
       .catch((error) => {
-        console.log('error: ' + error);
+        console.log("error: " + error);
       });
   }
 
   headerView() {
     return (
-      <View style={{ height: 60, justifyContent: 'center' }}>
+      <View style={{ height: 60, justifyContent: "center" }}>
         <Text
           style={{
-            textAlign: 'center',
+            textAlign: "center",
             fontSize: 22,
-            fontWeight: 'bold',
+            fontWeight: "bold",
           }}
         >
           Trade
@@ -168,16 +172,16 @@ export default class CryptoCurrencyModule extends Component {
     return (
       <View
         style={{
-          borderColor: "black",
+          borderColor: 'black',
           height: 50,
           marginHorizontal: 20,
           borderWidth: 1,
           borderRadius: 5,
-          justifyContent: "center",
+          justifyContent: 'center',
         }}
       >
         <View
-          style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5 }}
+          style={{ flexDirection: "row", alignItems: "center", marginLeft: 5 }}
         >
           <Image
             style={{ width: 20, height: 20 }}
@@ -220,19 +224,19 @@ export default class CryptoCurrencyModule extends Component {
           item.isSelected
             ? {
                 backgroundColor: item.isSelected
-                  ? "rgba(245, 248, 255, 1)"
-                  : "",
+                  ? 'rgba(245, 248, 255, 1)'
+                  : '',
                 height: 25,
-                alignSelf: "flex-start",
-                justifyContent: "center",
+                alignSelf: 'flex-start',
+                justifyContent: 'center',
                 paddingHorizontal: 8,
                 borderRadius: 25 / 2,
                 marginRight: 8,
               }
             : {
                 height: 25,
-                alignSelf: "flex-start",
-                justifyContent: "center",
+                alignSelf: 'flex-start',
+                justifyContent: 'center',
                 paddingHorizontal: 8,
                 borderRadius: 25 / 2,
                 marginRight: 8,
@@ -260,12 +264,12 @@ export default class CryptoCurrencyModule extends Component {
               item.isSelected
                 ? {
                     fontSize: 12,
-                    fontWeight: '700',
-                    color: 'rgba(9, 89, 255, 1)',
+                    fontWeight: "700",
+                    color: "rgba(9, 89, 255, 1)",
                   }
                 : {
                     fontSize: 12,
-                    fontWeight: '700',
+                    fontWeight: "700",
                   }
             }
           >
@@ -282,15 +286,15 @@ export default class CryptoCurrencyModule extends Component {
       <View style={{ height: 50, marginTop: 10 }}>
         <View
           style={{
-            alignItems: 'center',
-            flexDirection: 'row',
+            alignItems: "center",
+            flexDirection: "row",
           }}
         >
           <Image
             style={{ marginLeft: 10, height: 25, width: 25 }}
             source={item.image}
           />
-          <View style={{ flexDirection: 'row' }}>
+          <View style={{ flexDirection: "row" }}>
             <View style={{ flex: 1, marginLeft: 20 }}>
               <Text>{item.name}</Text>
               <Text>{item.subTitle}</Text>
@@ -341,16 +345,16 @@ export default class CryptoCurrencyModule extends Component {
         style={{
           height: 40,
           borderWidth: 1,
-          borderColor: 'black',
-          position: 'absolute',
+          borderColor: "black",
+          position: "absolute",
           bottom: 180,
           left: 20,
           right: 20,
-          backgroundColor: "white",
-          justifyContent: "center",
+          backgroundColor: 'white',
+          justifyContent: 'center',
         }}
       >
-        <Text style={{ textAlign: 'center' }}>See More</Text>
+        <Text style={{ textAlign: "center" }}>See More</Text>
       </TouchableOpacity>
     );
   }
